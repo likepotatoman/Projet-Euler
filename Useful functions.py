@@ -53,12 +53,14 @@ uploaded = files.upload()
 with open("#    #_euler.txt", "r") as file:
     content = file.read()
     lines = content.splitlines()
-
 input = []
 for i in range(len(lines)):
     line = lines[i].split(" ")
     input.append(line)
-
 for i in range(len(pyramide)):
     for j in range(len(pyramide[i])):
         pyramide[i][j] = int(pyramide[i][j])
+
+#gives the alphabetical position of a letter
+def letter_position(letter):
+    return ord(letter.lower()) - ord('a') + 1
