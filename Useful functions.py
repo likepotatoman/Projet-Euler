@@ -64,3 +64,16 @@ for i in range(len(pyramide)):
 #gives the alphabetical position of a letter
 def letter_position(letter):
     return ord(letter.lower()) - ord('a') + 1
+
+#gives the n-th fibonacci number, first time I have implemented a cache by hand
+fib_answers = {}
+def fib(n):
+    global fib_answer 
+    if n in fib_answers.keys():
+        return fib_answers[n]
+    if n == 1 or n == 2:
+        return 1
+    fib_answer = fib(n - 1) + fib(n - 2)
+    fib_answers[n] = fib_answer
+    return fib_answer
+
