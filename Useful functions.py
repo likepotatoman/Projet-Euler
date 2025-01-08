@@ -33,7 +33,9 @@ def factors(n):
     for i in range(1,round(np.sqrt(n)) + 1):
         if n % i == 0:
             factors.append(i)
-            factors.append(n / i)
+            if round(n / i) != i:
+                factors.append(round(n / i))
+    factors.sort()
     return factors
 
 #checks if n is a palindrome
