@@ -44,3 +44,19 @@ def is_palindrome(n):
     if n == n_reverse :
         return True
     return False
+
+#takes a file input and gives a list of lists of integers
+from google.colab import files
+uploaded = files.upload()
+with open("#    #_euler.txt", "r") as file:
+    content = file.read()
+    lines = content.splitlines()
+
+input = []
+for i in range(len(lines)):
+    line = lines[i].split(" ")
+    input.append(line)
+
+for i in range(len(pyramide)):
+    for j in range(len(pyramide[i])):
+        pyramide[i][j] = int(pyramide[i][j])
