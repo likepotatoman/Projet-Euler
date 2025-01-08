@@ -8,7 +8,6 @@ pyramide = []
 for i in range(len(lines)):
     line = lines[i].split(" ")
     pyramide.append(line)
-print(pyramide)
 
 for i in range(len(pyramide)):
     for j in range(len(pyramide[i])):
@@ -16,8 +15,6 @@ for i in range(len(pyramide)):
             pyramide[i][j] = int(pyramide[i][j][1])
         else : 
             pyramide[i][j] = int(pyramide[i][j])
-
-
 
 def resolve(pyramide):
     if len(pyramide) == 1:
