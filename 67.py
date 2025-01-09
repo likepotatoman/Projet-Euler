@@ -18,7 +18,7 @@ for i in range(len(pyramide)):
 
 def resolve(pyramide):
     if len(pyramide) == 1:
-        return pyramide[0]
+        return pyramide[0][0]
     for i in range(len(pyramide[-2])):
         if pyramide[-1][i] > pyramide[-1][i + 1]:
             pyramide[-2][i] += pyramide[-1][i]
