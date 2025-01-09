@@ -29,13 +29,11 @@ def prime_factors(n):
 #gives the factors of n
 import numpy as np
 def factors(n):
-    factors = []
-    for i in range(1,round(np.sqrt(n)) + 1):
+    factors = {1, n}
+    for i in range(2,round(np.sqrt(n)) + 1):
         if n % i == 0:
-            factors.append(i)
-            if round(n / i) != i:
-                factors.append(round(n / i))
-    factors.sort()
+            factors.add(i)
+            factors.add(int(n / i))
     return factors
 
 #checks if n is a palindrome
