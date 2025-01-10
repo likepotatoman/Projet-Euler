@@ -71,3 +71,27 @@ def fib(n, fib_answers = {1 : 1, 2 : 1}):
     fib_answers[n] = fib_answer
     return fib_answer
 
+#gives the list of all permutations of the elements given
+def permutation(remaining_elements, fixed_elements = []):
+    if len(remaining_elements) == 0:
+        return fixed_elements
+    
+    permutations = []
+    for i in range(len(remaining_elements)):
+        new_remaining_elements = list(remaining_elements)
+        new_remaining_elements.remove(remaining_elements[i])
+        new_fixed_elements = list(fixed_elements)
+        new_fixed_elements.append(remaining_elements[i])
+        permutations.append(permutation(new_remaining_elements, new_fixed_elements))
+    
+    def flatten(liste):
+        flattened = []
+        for item in liste:
+            if isinstance(item, list):  # Check if the item is a list
+                if isinstance(item[0], list):
+                    flattened.extend(flatten(item))  # Recursively flatten it
+                else:
+                    flattened.append(item)
+        return flattened
+    
+    return flatten(permutations)
