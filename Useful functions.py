@@ -75,7 +75,6 @@ def fib(n, fib_answers = {1 : 1, 2 : 1}):
 def permutation(remaining_elements, fixed_elements = []):
     if len(remaining_elements) == 0:
         return fixed_elements
-    
     permutations = []
     for i in range(len(remaining_elements)):
         new_remaining_elements = list(remaining_elements)
@@ -83,15 +82,23 @@ def permutation(remaining_elements, fixed_elements = []):
         new_fixed_elements = list(fixed_elements)
         new_fixed_elements.append(remaining_elements[i])
         permutations.append(permutation(new_remaining_elements, new_fixed_elements))
-    
     def flatten(liste):
         flattened = []
         for item in liste:
-            if isinstance(item, list):  # Check if the item is a list
+            if isinstance(item, list):
                 if isinstance(item[0], list):
-                    flattened.extend(flatten(item))  # Recursively flatten it
+                    flattened.extend(flatten(item))
                 else:
                     flattened.append(item)
         return flattened
-    
     return flatten(permutations)
+
+#flattens n-depth lists into it's base constituants, if one wishes to return the base lists, he has to add another condition to check if the inside of the list is not the base constituants as done in permutation()
+def flatten(liste):
+    flattened = []
+    for item in liste:
+        if tisinstance(item, list):
+            flattened.extend(flatten(item)) 
+        else:
+            flattened.append(item)
+    return flattened
