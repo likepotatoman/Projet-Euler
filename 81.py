@@ -1,5 +1,4 @@
 #This is my first dijkestra implementation ever so forgive the, most-likely, ugly code
-
 with open("C:/Users/dmlam/Desktop/81_euler.txt", "r") as file:
     content = file.read()
     lines = content.splitlines()
