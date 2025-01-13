@@ -84,8 +84,9 @@ def dijkstra_implementation(matrix, minimal_path_yet, true_minimal_path): #the f
 minimum = sum([matrix[0][i] for i in range(len(matrix[0]))])
 
 for i in range(len(matrix)):
-    if dijkstra_implementation(matrix, [ [[i, 0], matrix[i][0]] ],[]) < minimum:
-        minimum = dijkstra_implementation(matrix, [ [[i, 0], matrix[i][0]] ], [])
+    score = dijkstra_implementation(matrix, [ [[i, 0], matrix[i][0]] ],[])
+    if score < minimum:
+        minimum = score
     print(str(i + 1) + " done")
 
 print(minimum)
