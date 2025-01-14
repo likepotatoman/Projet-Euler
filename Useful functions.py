@@ -104,7 +104,7 @@ def flatten(liste):
     return flattened
 
 #converts n in base 10 into base p
-def chiffre(p, b):
+def base_convert(p, b):
     liste_reponse = ""
     plus_grande_puissance = 0
     while b**(plus_grande_puissance + 1) <= p:
