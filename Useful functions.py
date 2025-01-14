@@ -102,3 +102,17 @@ def flatten(liste):
         else:
             flattened.append(item)
     return flattened
+
+#converts n in base 10 into base p
+def chiffre(p, b):
+    liste_reponse = ""
+    plus_grande_puissance = 0
+    while b**(plus_grande_puissance + 1) <= p:
+        plus_grande_puissance += 1
+    for i in range(plus_grande_puissance,-1,-1):
+        c = 0
+        while b**i <= p:
+            c += 1
+            p = p - b**i
+        liste_reponse += str(c)
+    return int(liste_reponse)
