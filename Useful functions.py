@@ -1,23 +1,32 @@
 #checks if n is prime
 def is_prime(n):
+    if n == 1:
+        return False
     for i in range(2,round(n**0.5) + 1):
         if n % i == 0:
             return False
     return True
 
 #gives n-th prime
-def prime(n):
+def prime(n, found_primes = {1 : 2}):
     def is_prime(n):
+        if n == 1:
+            return False
         for i in range(2,round(n**0.5) + 1):
             if n % i == 0:
                 return False
         return True
-    prime = 0
-    for i in range(n):
-        prime += 1
-        while is_prime(prime) == False:
-            prime += 1
-    return prime
+    for i in range(n, 0, -1):
+        if i in found_primes:
+            last_prime_index = i
+            last_calculated_prime_value = found_primes[i]
+            break
+    for i in range(n - last_prime_index):
+        last_calculated_prime_value += 1
+        while is_prime(last_calculated_prime_value) == False:
+            last_calculated_prime_value += 1
+        found_primes[last_prime_index + i + 1] = last_calculated_prime_value
+    return found_primes[n]
 
 #gives prime factors of n
 def prime_factors(n):
