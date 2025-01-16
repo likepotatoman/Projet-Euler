@@ -1,13 +1,17 @@
 #checks if n is prime
-import numpy as np
 def is_prime(n):
-    for i in range(2,round(np.sqrt(n)) + 1):
+    for i in range(2,round(n**0.5) + 1):
         if n % i == 0:
             return False
     return True
 
 #gives n-th prime
 def prime(n):
+    def is_prime(n):
+        for i in range(2,round(n**0.5) + 1):
+            if n % i == 0:
+                return False
+        return True
     prime = 0
     for i in range(n):
         prime += 1
@@ -17,6 +21,18 @@ def prime(n):
 
 #gives prime factors of n
 def prime_factors(n):
+    def prime(n):
+        def is_prime(n):
+            for i in range(2,round(n**0.5) + 1):
+                if n % i == 0:
+                    return False
+            return True
+        prime = 0
+        for i in range(n):
+            prime += 1
+            while is_prime(prime) == False:
+                prime += 1
+        return prime
     prime_factors = []
     prime_index = 2
     while n > 1 :
