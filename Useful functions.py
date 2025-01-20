@@ -7,6 +7,13 @@ def is_prime(n):
             return False
     return True
 
+#gives all the primes under n with n included if n is prime
+def prime_under(n):
+    primes = {i for i in range(2, n + 1)}
+    for i in range(2, n // 2):
+        primes -= {j for j in range(i * 2, n + 1, i)}
+    return primes
+
 #gives n-th prime
 def prime(n, found_primes = {1 : 2}):
     def is_prime(n):
