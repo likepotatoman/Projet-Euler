@@ -103,6 +103,18 @@ def fib(n, fib_answers = {1 : 1, 2 : 1}):
     fib_answers[n] = fib_answer
     return fib_answer
 
+def fib(i): #alternative
+    if i == 1 or i == 2:
+        return 1
+    fib_A = 1
+    fib_B = 1
+    for i in range(i - 1):
+        if fib_A <= fib_B:
+            fib_A += fib_B
+        else :
+            fib_B += fib_A
+    return max(fib_B, fib_A)
+
 #gives the list of all permutations of the elements given
 def permutation(remaining_elements, fixed_elements = []):
     if len(remaining_elements) == 0:
