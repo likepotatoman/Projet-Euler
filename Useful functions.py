@@ -160,3 +160,10 @@ def base_convert(p, b):
             p = p - b**i
         liste_reponse += str(c)
     return int(liste_reponse)
+
+#returns the number in which k elements can be arranged in n  when order doesn't matter
+import math
+def comb(n, k):
+    def fact(n):
+        return math.prod([i for i in range(1, n + 1)])
+    return fact(n) / (fact(k) * fact(n - k))
